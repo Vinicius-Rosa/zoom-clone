@@ -7,12 +7,19 @@ class Business {
         this.currentStream = {};
     }
 
-    initialize(deps) {
+    static initialize(deps) {
         const instance = new Business(deps);
         return instance._init();
     }
 
-    _init() {
-        this.currentStream = this.media.getCamera();
+    async _init() {
+        this.currentStream = await this.media.getCamera();
+        this.addVideoStream("test01");
+    }
+
+    addVideoStream(userId, stream = this.currentStream) {
+        const isCurrentId = false;
+
+        this.view.renderVideo({ userId, stream, isCurrentId });
     }
 }

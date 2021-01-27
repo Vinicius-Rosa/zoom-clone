@@ -7,6 +7,7 @@ class View {
         const video = document.createElement('video');
         video.muted = muted;
         video.src = src;
+        video.srcObject = srcObject
 
         if (src) {
             video.controls = true;
